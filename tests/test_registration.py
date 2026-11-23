@@ -53,6 +53,17 @@ class TestLogin:
             EC.visibility_of_element_located(RegistrationLocators.ENTER)
         )
         assert enter_user.text == "Войти"
+        # заполняем поле 'Email' (вводим уже ранее зарегистрированный email)
+        email_input = WebDriverWait(driver, 5).until(EC.visibility_of_element_located(RegistrationLocators.EMAILE_INPUT))
+        email_input.send_keys(Data.EMAIL_REGISTERED)
+
+        # заполняем поле "Пароль" (вводим уже ранее зарегистрированный пароль)
+        password_input = WebDriverWait(driver, 5).until(EC.visibility_of_element_located(RegistrationLocators.PASS_INPUT))
+        password_input.send_keys(Data.PASSWORD_REGISTERED)
+        enter_user.click()
+        # проверяем наличие кнопки "Оформить заказ"
+        order = WebDriverWait(driver, 10).until(EC.visibility_of_element_located(RegistrationLocators.ORDER))
+        assert order.text == "Оформить заказ"
 
     def test_short_password_mistake(self, driver): # проверяет что возникает ошибка с текстом:"Некорректный пароль" при попытке зарегистрироваться с паролем длиной менее 6ти знаков
         # создаем переменные email, password из файла generators через функцию generate_random_credentials()
