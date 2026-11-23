@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class TestAccountExit:
     def test_account_exit(self, driver): # проверяет выход по кнопке «Выйти» в личном кабинете
-    
+        # открываем главную страницу
         driver.get(Data.BURGERS_URL)
         # Находим кнопку "Личный кабинет", кликаем на нее
         burgers_enter = WebDriverWait(driver, 5).until(

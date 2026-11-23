@@ -20,7 +20,7 @@
 
 Переход в личный кабинет тест class TestClickAccount файл test_click_account.py
 
- 7) test_click_account проверяет переход по клику на «Личный кабинет»
+7) test_click_account проверяет переход по клику на «Личный кабинет»
 
  Переход из личного кабинета в конструктор class TestConstructorEnter файл test_transition_constructor.py
 
@@ -30,10 +30,10 @@
 
  Выход из аккаунта тест class TestAccountExit файл test_account_exit.py
 
- 10) test_account_exit проверяет выход по кнопке «Выйти» в личном кабинете.
+10) test_account_exit проверяет выход по кнопке «Выйти» в личном кабинете.
 
-  Раздел «Конструктор»
+Раздел «Конструктор» тесты class TestAssemblyTheBurger файл test_constructor_section.py.
 
- 11) проверяет переход к разделу «Булки»
- 12) проверяет переход к разделу «Соусы»
-13) проверяет переход к разделу «Начинки»
+11) test_constructor_buns проверяет переход к разделу «Булки»
+12) test_constructor_sauces проверяет переход к разделу «Соусы»
+13) test_constructor_topping проверяет переход к разделу «Начинки»

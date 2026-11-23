@@ -65,3 +65,19 @@ class TestConstructor:  # Для тестирования Коструктора
 
     # Кнопка/ссылка логотип Stellar Burgers
     BUTTON_STELLAR_BURGERS = (By.XPATH, "//div[contains(@class, 'header__logo')]//a[@href='/']")
+
+    # Коструктор. Вкладка "Булки"
+    BUNS = (By.XPATH,"//span[normalize-space()='Булки']")
+
+    # Вкладка "Булки" в активном состоянии
+    BUNS_ACTIVE = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current') and .//span[normalize-space()='Булки']]")
+    # Конструктор. Вкладка "Соусы"
+    SAUCES = (By.XPATH,"//span[normalize-space()='Соусы']")
+
+    # Вкладка "Соусы" в активном состоянии
+    SAUCES_ACTIVE = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current') and .//span[normalize-space()='Соусы']]")
+    
+    # Конструктор. Вкладка "Начинки"
+    TOPPING = (By.XPATH,"//span[normalize-space()='Начинки']")
+    #  Вкладка "Начинки" в активном состоянии
+    TOPPING_ACTIVE = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current') and .//span[normalize-space()='Начинки']]")
