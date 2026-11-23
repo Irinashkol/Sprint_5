@@ -32,3 +32,4 @@ class TestClickAccount:
         # Проверяем, что появилась кнопка "Выход" в личном кабинете
         button_exit = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(EnterLocators.BUTTON_EXIT))
         assert button_exit.text == "Выход"
+        

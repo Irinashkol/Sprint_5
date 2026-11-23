@@ -34,3 +34,4 @@ class TestAccountExit:
         # проверяем, что появилась кнопка "Войти"
         enter_user = WebDriverWait(driver, 5).until(EC.element_to_be_clickable(RegistrationLocators.ENTER))
         assert enter_user.text == "Войти"
+        

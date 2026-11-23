@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class TestAssemblyTheBurger:
     def test_constructor_buns(self, driver): # проверяет переход к разделу «Булки»
-        
+
         # открываем главную страницу
         driver.get(Data.BURGERS_URL)
         # Находим кнопку "Войти в аккаунт», кликаем на нее
@@ -32,6 +32,29 @@ class TestAssemblyTheBurger:
         # проверяем, что в класс соответствует активному
         assert "tab_tab_type_current" in class_active
 
+        # переходим в раздел "Соусы"
+        # находим вкладку "Соусы", кликаем на нее
+        sauces = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(TestConstructor.SAUCES))
+        sauces.click()
+
+        # проверяем, что переключились на раздел "Соусы"
+        class_active_sauces = WebDriverWait(driver, 10).until(EC.visibility_of_element_located(TestConstructor.SAUCES_ACTIVE)) 
+        # Проверяем, что элемент отобразился на странице 
+        assert class_active_sauces.is_displayed() 
+        
+        # находим вкладку "Булки", кликаем на нее
+        buns = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(TestConstructor.BUNS))
+        buns.click()
+        # проверяем по классу, что вкладка "Булки" стала активной
+
+        buns_active = WebDriverWait(driver, 10).until(EC.visibility_of_element_located(TestConstructor.BUNS_ACTIVE))
+        
+        class_active = buns_active.get_attribute("class")
+        
+        assert "tab_tab_type_current" in class_active
+
+
+
     def test_constructor_sauces(self, driver): # проверяет переход к разделу «Соусы»
 
         # открываем главную страницу
@@ -56,7 +79,7 @@ class TestAssemblyTheBurger:
         sauces = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(TestConstructor.SAUCES))
         sauces.click()
         class_active_sauces = WebDriverWait(driver, 10).until(EC.visibility_of_element_located(TestConstructor.SAUCES_ACTIVE)) 
-        # Проверяем, что элемент отобразился на странице
+        # Проверяем, что элемент отобразился на странице 
         assert class_active_sauces.is_displayed()
 
     def test_constructor_topping(self, driver): # проверяет переход к разделу «Начинки»
