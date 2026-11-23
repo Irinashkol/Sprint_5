@@ -41,7 +41,7 @@ class TestAssemblyTheBurger:
         class_active_sauces = WebDriverWait(driver, 10).until(EC.visibility_of_element_located(TestConstructor.SAUCES_ACTIVE)) 
         # Проверяем, что элемент отобразился на странице 
         assert class_active_sauces.is_displayed() 
-        
+
         # находим вкладку "Булки", кликаем на нее
         buns = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(TestConstructor.BUNS))
         buns.click()
@@ -52,8 +52,6 @@ class TestAssemblyTheBurger:
         class_active = buns_active.get_attribute("class")
         
         assert "tab_tab_type_current" in class_active
-
-
 
     def test_constructor_sauces(self, driver): # проверяет переход к разделу «Соусы»
 

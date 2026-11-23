@@ -28,7 +28,7 @@ class TestLogin:
         name_input = WebDriverWait(driver, 5).until(
             EC.visibility_of_element_located(RegistrationLocators.NAME_INPUT)
         )
-        name_input.send_keys("Ирина")
+        name_input.send_keys(Data.NAME_REGISTRERED)
 
         # заполняем поле 'Email'
         email_input = WebDriverWait(driver, 5).until(
