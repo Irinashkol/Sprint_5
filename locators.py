@@ -41,6 +41,9 @@ class EnterLocators:  # Для тестирования входа и выход
     # Поле Пароль на странице Входа в аккаунт
     PASS = (By.XPATH, "//label[normalize-space()='Пароль']/following-sibling::input")
 
+    # кнопка/ссылка "Войти" на странице регистрации
+    BUTTON_ENTER_REGISTRATION = (By.LINK_TEXT, "Войти")
+
     # ссылка для входа через Восстановление пароля
     REGENERATE_PASSWORD_LINK = (By.LINK_TEXT, "Восстановить пароль")
 
@@ -53,7 +56,7 @@ class EnterLocators:  # Для тестирования входа и выход
     # Поле для ввода кода, для  восстановления пароля
     CODE = (By.XPATH, "//label[normalize-space()='Введите код из письма']/following-sibling::input")
 
-    # кнопка/ссылка "Войти" на странице восстноления пароля
+    # кнопка/ссылка "Войти" на странице восстановления пароля
     BUTTON_ENTER = (By.LINK_TEXT, "Войти")
 
     # Кнопка "Выйти" в личном кабинете

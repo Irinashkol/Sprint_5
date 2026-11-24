@@ -51,10 +51,8 @@ class TestLoginEnter:
         order = WebDriverWait(driver, 10).until(EC.visibility_of_element_located(RegistrationLocators.ORDER))
         assert order.text == "Оформить заказ"
 
-    def test_enter_in_registration_form(self, driver):# тест успешного входа в личный кабинет через кнопку в форме регистрации
+    def test_enter_in_registration_form(self, driver):# тест успешного входа в личный кабинет через кнопку Войти в форме регистрации
 
-        # создаем переменные email, password из файла generators через функцию generate_random_credentials()
-        email, password = generate_random_credentials()
         # открываем главную страницу
         driver.get(Data.BURGERS_URL)
         # Находим кнопку "личный кабинет", кликаем на нее
@@ -67,39 +65,17 @@ class TestLoginEnter:
             EC.element_to_be_clickable(RegistrationLocators.REGISTRATION_BUTTON)
         )
         registration.click()
+        # находим кнопку/ссылку "Войти", нажимаем на нее
+        button_enter_registration = WebDriverWait(driver, 5).until(EC.element_to_be_clickable(EnterLocators.BUTTON_ENTER_REGISTRATION))
+        button_enter_registration.click()
 
-        # заполняем поле "Имя"
-        name_input = WebDriverWait(driver, 5).until(
-            EC.visibility_of_element_located(RegistrationLocators.NAME_INPUT)
-        )
-        name_input.send_keys(Data.NAME_REGISTRERED)
-
-        # заполняем поле 'Email'
-        email_input = WebDriverWait(driver, 5).until(
-            EC.visibility_of_element_located(RegistrationLocators.EMAILE_INPUT)
-        )
-        email_input.send_keys(email)
-
-        # заполняем поле "Пароль"
-        password_input = WebDriverWait(driver, 5).until(
-            EC.visibility_of_element_located(RegistrationLocators.PASS_INPUT)
-        )
-        password_input.send_keys(password)
-
-        #  нажимаем кнопку "Зарегистрироваться"
-        registration_user = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(RegistrationLocators.REGISTRATION))
-        registration_user.click()
-
-        # дожидаемся исчезновения кнопки "Зарегистрироваться" (почему-то без этой задержки не работает, даже, когда везде по 10 сек)
-        WebDriverWait(driver, 10).until(EC.staleness_of(registration_user))
-
-        # находим поле Email и вводим логин - email
+        # находим поле Email и вводим уже зарегистрированный логин - email
         login_email_input = WebDriverWait(driver, 10).until(EC.visibility_of_element_located(EnterLocators.NAME))
-        login_email_input.send_keys(email)
+        login_email_input.send_keys(Data.EMAIL_REGISTERED)
 
-        # находим поле Пароль и вводим пароль
+        # находим поле Пароль и вводим уже зарегистрированный пароль
         login_password_input = WebDriverWait(driver, 5).until(EC.visibility_of_element_located(EnterLocators.PASS))
-        login_password_input.send_keys(password)
+        login_password_input.send_keys(Data.PASSWORD_REGISTERED)
 
         # нажимаем кнопку "Вход"
         enter_user = WebDriverWait(driver, 5).until(EC.element_to_be_clickable(RegistrationLocators.ENTER))
